@@ -1,0 +1,8 @@
+AWS_ACCESS_KEY_ID: "AKIAJYXMUGIRB74XRLDQ"
+AWS_SECRET_ACCESS_KEY: "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"
+development:
+  SENDGRID_USERNAME: "app20723196@heroku.com"
+  SENDGRID_PASSWORD: "q9y2thab"
+  AWS_BUCKET: stereotype13-bloccit-development
+production:
+  AWS_BUCKET: stereotype13-bloccit-production
