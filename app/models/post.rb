@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   has_many :comments
   belongs_to :user
   belongs_to :topic
-  attr_accessible :body, :title, :topic
+  attr_accessible :body, :title, :topic, :post_image
 
   default_scope order('created_at DESC')
 
@@ -10,4 +10,7 @@ class Post < ActiveRecord::Base
   validates :body, length: {minimum: 20}, presence: true
   validates :topic, presence: true
   validates :user, presence: true
+
+  mount_uploader :post_image, PostImageUploader
+
 end
