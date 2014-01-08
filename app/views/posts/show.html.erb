@@ -19,5 +19,9 @@
       
     <% end %>
   </div>
-
+  <div class="span4">
+    <% if can? :create, Comment %>
+      <%= link_to "New Comment", post_comments_path(@post), class: 'btn btn-large btn-block' %>
+    <% end %>
+  </div>
 </div>
