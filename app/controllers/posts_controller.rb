@@ -3,6 +3,11 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
+	
+	##Every time we load the page, we create a @comment that may or may not get populated
+	@comment = Comment.new
+	@comment.post = @post
+	
   end
 
   def new

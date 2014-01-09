@@ -1,7 +1,7 @@
 <h1><%= markdown @post.title %></h1>
 
 <% if can? :update, @post %>
-  <%= link_to "Edit Post", edit_post_path, class: 'btn btn-primary btn-mini' %>
+  <%= link_to "Edit Post", edit_topic_post_path, class: 'btn btn-primary btn-mini' %>
 <% end %>
 
 <div class="row">
@@ -21,9 +21,9 @@
   <div class="span8">
     <%= render @post.comments %>
   </div>
-  <div class="span4">
+  <div class="span6">
     <% if can? :create, Comment %>
-      <%= render 'comments/form', :comment => current_user.comments.build %>
+      <%= render partial: 'comments/form'  %>
     <% end %>
   </div>
 </div>
