@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20140108190408) do
   end
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "posts", :force => true do |t|
     t.string   "title"

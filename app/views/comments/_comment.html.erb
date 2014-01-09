@@ -1,0 +1,10 @@
+<div class="media">
+  <div class="media-body">
+    <blockquote>
+      <p>
+        <%= comment.body %>
+      </p>  
+       <small>Comment submitted by <%= User.find(comment.user_id).name %></small>
+    </blockquote>
+  </div>
+</div>
