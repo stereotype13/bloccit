@@ -5,6 +5,9 @@
         <%= comment.body %>
       </p>  
        <small>Comment submitted by <%= User.find(comment.user_id).name %></small>
+       <% if can? :destroy, comment %>
+        <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+       <% end %>
     </blockquote>
   </div>
 </div>

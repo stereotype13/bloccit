@@ -42,7 +42,7 @@ posts = Post.all
 users = User.all
 users.each do |user|
 	posts.each do |post|
-		rand(1..2).times do
+		rand(0..1).times do
 			c = post.comments.create(body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"), user_id: user.id)
 			  # set the created_at to a time within the past year
 			c.update_attribute(:created_at, Time.now - rand(600..31536000))

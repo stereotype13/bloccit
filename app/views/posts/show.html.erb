@@ -1,29 +1,46 @@
 <h1><%= markdown @post.title %></h1>
 
-<% if can? :update, @post %>
-  <%= link_to "Edit Post", edit_topic_post_path, class: 'btn btn-primary btn-mini' %>
-<% end %>
+<div class="row">
+  <div class="span1">
+    <% if can? :update, @post %>
+      <%= link_to "Edit Post", edit_topic_post_path(@topic, @post), class: 'btn btn-primary btn-mini' %>
+    <% end %>
+  </div>
+  <div class="span1">
+    <% if can? :destroy, @post %>
+      <%= link_to "Delete Post", [@topic, @post], method: :delete, class: 'btn btn-mini btn-block btn-danger', confirm: 'Are you sure you want to delete this post?' %>
+    <% end %>
+  </div>
+</div>
 
 <div class="row">
-  <div class="span8">
+  <div class="span10">
     <small>
       <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
       submitted <%= time_ago_in_words(@post.created_at) %> ago by 
       <%= @post.user.name %>
     </small>  
-    <p>
       <div style="float:left;">
         <%= image_tag(@post.post_image.large.url) if @post.post_image? %>
       </div>
-      <%= markdown @post.body %>
+    <p style='font-size:14pt;'>
+      <%=  markdown @post.body %>
     </p>
+  </div><br/>
   </div>
-  <div class="span8">
-    <%= render @post.comments %>
+</div><br/>
+<div class="container">
+  <div class="row">
+    <div class="span8">
+      <%= render @post.comments %>
+    </div>
   </div>
-  <div class="span6">
-    <% if can? :create, Comment %>
-      <%= render partial: 'comments/form'  %>
-    <% end %>
+
+  <div class="row">
+      <div class="span12">
+         <% if can? :create, Comment %>
+          <%= render partial: 'comments/form'  %>
+        <% end %>
+      </div>
   </div>
 </div>
