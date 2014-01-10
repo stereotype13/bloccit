@@ -33,13 +33,6 @@ rand(4..10).times do
     # set the created_at to a time within the past year
     p.update_attribute(:created_at, Time.now - rand(600..31536000))
 
-    rand(3..7).times do
-      c = p.comments.create(
-        body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"), user_id: u.id)
-      # set the created_at to a time within the past year
-      c.update_attribute(:created_at, Time.now - rand(600..31536000))
-    end
-
     topics.rotate!
 
   end
