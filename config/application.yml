@@ -4,5 +4,9 @@ development:
   SENDGRID_USERNAME: "app20723196@heroku.com"
   SENDGRID_PASSWORD: "q9y2thab"
   AWS_BUCKET: stereotype13-bloccit-development
+  FACEBOOK_ID: "600245413364434"
+  FACEBOOK_SECRET: "851767ba84f2adf67ec503c6df80dea3"
 production:
   AWS_BUCKET: stereotype13-bloccit-production
+  FACEBOOK_ID: 600245413364434
+  FACEBOOK_SECRET: 851767ba84f2adf67ec503c6df80dea3
