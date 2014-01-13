@@ -2,11 +2,11 @@ require 'faker'
 
 # Create 15 topics
 topics = []
-15.times do
-  topics << Topic.create(
-    name: Faker::Lorem.words(rand(1..10)).join(" "), 
-    description: Faker::Lorem.paragraph(rand(1..4))
-  )
+  15.times do
+    topics << Topic.create(
+      name: Faker::Lorem.words(rand(1..10)).join(" "), 
+      description: Faker::Lorem.paragraph(rand(1..4))
+    )
 end
 
 rand(4..10).times do
@@ -32,13 +32,7 @@ rand(4..10).times do
       body: Faker::Lorem.paragraphs(rand(1..4)).join("\n"))
     # set the created_at to a time within the past year
     p.update_attribute(:created_at, Time.now - rand(600..31536000))
-
-    rand(3..7).times do
-      c = p.comments.create(
-        body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"), user_id: u.id)
-      # set the created_at to a time within the past year
-      c.update_attribute(:created_at, Time.now - rand(600..31536000))
-    end
+    p.update_rank
 
     topics.rotate!
 
@@ -84,6 +78,7 @@ u.skip_confirmation!
 u.save
 
 puts "Seed finished"
+puts "#{Topic.count} topics created"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
