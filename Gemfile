@@ -13,6 +13,13 @@ group :development do
   gem 'sqlite3'
 end
 
+group :development, :test do
+  gem "diff-lcs", "~> 1.2.5"
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'database_cleaner'
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -39,6 +46,8 @@ gem 'mini_magick'
 gem 'fog'
 gem 'figaro'
 gem 'will_paginate', '~> 3.0'
+gem 'omniauth-facebook'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
