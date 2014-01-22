@@ -5,6 +5,7 @@ class Topics::PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     authorize! :read, @topic, message: "You need to be signed-in to do that."
 	
+	@comments = @post.comments
   	##Every time we load the page, we create a @comment that may or may not get populated
   	@comment = Comment.new
   	@comment.post = @post
