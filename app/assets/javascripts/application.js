@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+alert("Hello, World!")
+
+function addOne(a){
+  console.log("You put " + a);
+  return a + 1;
+}
