@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
   	@post = Post.find(params[:post_id])
   	@comment = current_user.comments.build(params[:comment])
   	@comment.post = @post
+    @new_comment = Comment.new
 	
     #create a @topic variable so we know build the propper [@topic, @post] url to redirect to
   	@topic = Topic.find(params[:topic_id])
@@ -20,7 +21,9 @@ class CommentsController < ApplicationController
   		flash[:error] = "There was an error saving the comment. Please try again."
   	end
   	 
-  	redirect_to [@topic, @post] #builds the propper nested url 
+  	respond_with(@comment) do |f|
+    f.html { redirect_to [@topic, @post] }
+  end
 	 
   end
 

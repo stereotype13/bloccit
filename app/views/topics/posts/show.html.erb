@@ -42,22 +42,25 @@
 <div class="container">
   <div class="row">
     <div class="span8">
-      <%= render partial: 'comments/comment', collection: @comments %>
+      <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
+        <div class="js-comments">  
+          <%= render partial: 'comments/comment', collection: @comments %>
+        </div>
     </div>
   </div>
 
   <div class="row">
       <div class="span12">
          <% if can? :create, Comment %>
-                  <hr/>
+            <hr/>
 
-                  <a href="#" class="js-show-hide" data-selector="js-new-comment">Add Comment</a>
-                  <br/>
-                  <div class="js-new-comment hide">
-                        <h4>New Comment</h4>
-                        <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
-                  </div>
-                 <% end %>
+            <a href="#" class="js-show-hide" data-selector="js-new-comment">Add Comment</a>
+            <br/>
+            <div class="js-new-comment hide">
+                  <h4>New Comment</h4>
+                  <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+            </div>
+           <% end %>
       </div>
   </div>
   
