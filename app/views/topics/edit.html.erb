@@ -33,7 +33,7 @@
       </div>
       <div class="control-group">
         <div class="controls">
-          <%= f.submit "Save", class: 'btn' %>
+          <%= f.submit "Save", class: 'btn', :onclick => "blocmetrics.track('some event name', {property_1: 'post submit', property_2: 'save'})" %>
         </div>
       </div>
     <% end %>
